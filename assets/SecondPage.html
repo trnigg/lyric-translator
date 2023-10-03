@@ -3,12 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Songegreen</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              green: '#6BC997',
+              grey: '#504C64',
+              white: 'FDFDFD',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Songdegreen</title>
 </head>
 <body>
     <header>
        <nav>
-        <h1>Songe<span>green</span></h1>
+        <h1 class="text-3xl font-bold text-grey">Songde<span class="text-green">green</span></h1>
         <p>View Favourites</p>
        </nav>    
     </header>

@@ -56,7 +56,7 @@ function fetchLyrics(track, artist) {
   // method: 'GET', //GET is the default.
   // credentials: 'same-origin', // include, *same-origin, omit
   // redirect: 'follow', // manual, *follow, error
-  // mode: 'no-cors', // prevent sdata!!!!!
+  mode: 'cores', // prevent sdata!!!!!
   }) //initiates HTTP GET request
     .then(function (response) {
       if (response.ok) {

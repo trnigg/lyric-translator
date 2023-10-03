@@ -81,14 +81,7 @@ function logSongData(songData){
 
 
 // Scenario Testing
-// fetchLyrics("Roses", "Outkast");
-
-// fetchLyrics("Song without artist", "");
-// fetchLyrics("", "Artist without song"); // this might be a moot scenario, we should consider not allowing - see NOTE above for related code refactor
-// fetchLyrics("", ""); // this is a moot scenario, we should not allow
-
-
-
+fetchLyrics("Roses", "Outkast");
 
 
 

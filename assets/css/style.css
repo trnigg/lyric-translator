@@ -12,31 +12,19 @@
     display: block;
     
 }
-.LOGO{
+.LOGO {
     display:block ;
-    
-    margin-left: 5%;
     width: 60px;
 }
-.f-view{
-    font-size: 1.1em;
-    float: right;
-    margin-right: 2%;
-    margin-top: 2%;
+
+.Songdegreen {
+  font-family: 'Lobster', cursive;
 }
+
 .f-view{
     cursor: pointer;
 }
 
-.Songdegreen{
-    text-align: center;
-    font-size: 2em;
-    
-}
-.green{
-    color: green;
-    font-size: 1.5em;
-}
 main{
   display: inline-flex;
   padding: 20px;
@@ -56,6 +44,15 @@ main{
     text-align: center;
     font-size: 1.8em;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
 .Songdefied{
     border: 2px solid black;
     margin-left: 80px;

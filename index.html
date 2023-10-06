@@ -5,19 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link href=""> <!--Insert css here-->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              green: '#6BC997',
+              grey: '#504C64',
+              white: 'FDFDFD',
+            }
+          }
+        }
+      }
+    </script>
     <link rel="stylesheet" href="./assets/css/style.css">
   </head>
   
   <!--Basic Body Foundation-->
-  <body>
-    <header>
-        <h1></h1>
+  <body style="color: grey;">
+    <header class="main-head" style= "background-color: black;">
+      <div style ="display: inline-flex ;">
+        <img src="./assets/images/LOGO.PNG" style="width: 5%; height: 5%;">
+        <h1 class="songdegreen-header font-size">Songde<span class="font-size font-bold text-green">green</span></h1>
+        <button class= "favourites" style="display: inline-flex;">Show Favourites</button>
+      </div>
     </header>
-    <section>
-        <div></div>
-        <div></div>
-        <div></div>
+    <section style="position: fixed; left: 30%; margin-top: 5%;">
+        <div><h2>noun:a misunderstood or misinterpreted word or phrase resulting from a mishearing of the lyrics of a song.</h2></div>
+        <div><button class=" " style="margin-top: 50px;">Start Songdefying</button></div> 
+    </section>
+    <section style="position: fixed; left: 30%; margin-top: 15%;">
+      <textarea>Song</textarea>
+      <textarea>Artist</textarea>
+      <button>Songdefy It!</button>
     </section>
 	
 

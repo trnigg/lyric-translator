@@ -62,7 +62,6 @@ getMondegreen(songName, artistName);
 
 // IMPORTANT!!! FOR SPOTIFY: REMEMBER TO CHANGE REDIRECT URI !!! See: https://developer.spotify.com/documentation/web-api/tutorials/getting-started#create-an-app
 
-
 // Check expiry time of access token in localStorage against accurent time - if expired get new - don't need refresh
 // https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
 
@@ -192,3 +191,4 @@ window.onSpotifyIframeApiReady = (IFrameAPI) => {
   };
   IFrameAPI.createController(element, options, callback);
 };
+

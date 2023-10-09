@@ -167,13 +167,7 @@ function searchForTrack() {
 // searchForTrack(); // THis needs to be added to an event listener
 
 
-
-
-
-
-
-
-// Send to <iFrame>
+// Send Spotify URI to <iFrame>
 
 // Render the iFrame below
 

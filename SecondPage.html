@@ -41,18 +41,21 @@
 <body class="font-helvetica text-grey">
     <header>
        <nav>
-        <p class="f-view text-lg float-right p-10 font-bold">View Favourites</p>
+        <p class="f-view text-lg float-right pt-20 pr-20 font-bold">View Favourites</p>
         <img class="LOGO pt-5 object-contain h-40 w-40" src="./assets/images/LOGO.PNG" alt="LOGO">
         <h1  class="Songdegreen text-center text-7xl font-bold">Songde<span class="text-green text-center text-7xl">green</span></h1>
         <p class="Mondegreen">Mondegreen (noun) : a misunderstood or misinterpreted word or phrase resulting from a mishearing of the lyrics of a song.</p>
        </nav>    
     </header>
        <main>
-        <div>
-            <h2 class="Song-name">Song Name <span class="material-symbols-outlined">
+        <div class="" >
+            <h2 class="Song-name">Favourite it! <span class="material-symbols-outlined">
               star_rate
               </span></h2>
-        <img class="Album-cover" src="" alt="Album Cover" >
+
+        <!--  See :https://developer.spotify.com/documentation/embeds/tutorials/using-the-iframe-api -->
+        <div class="Album-cover" id="embed-iframe"></div>
+        <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script> 
        </div>
 
        <div>
@@ -70,5 +73,6 @@
       </p>
     </div>
 </footer>
+<script src="./assets/script/script.js"></script>
 </body>
 </html>

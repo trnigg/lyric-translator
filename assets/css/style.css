@@ -31,13 +31,15 @@ main{
   margin-left: 20%;
   margin-top: 5%;
 }
-.Album-cover{
+
+/* .Album-cover{
     border: 2px solid black;
     width: 400px;
     height: 500px;
     background-color: lightblue;
        
-}
+} */
+
 .Song-name{
     
     margin-bottom: 20px;

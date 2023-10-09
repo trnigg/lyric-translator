@@ -2,15 +2,6 @@
 // TO-DO: Add global variables for DOM manipulation and event listeners
 
 
-
-  var button = document.getElementById("start");
-  var input= document.getElementById("input1");
-
-    button.addEventListener("click",(e) => {
-     input.style.display ="flex";
-  })
-
-
 const apiKey = 'ADD_TOKEN'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 

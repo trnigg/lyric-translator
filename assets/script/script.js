@@ -62,3 +62,24 @@ getMondegreen(songName, artistName);
 
 
 
+
+
+//See  https://developer.spotify.com/documentation/embeds/tutorials/using-the-iframe-api
+
+window.onSpotifyIframeApiReady = (IFrameAPI) => {
+  const element = document.getElementById('embed-iframe');
+  const options = {
+    width: '100%',
+    height: '200',
+    uri: 'spotify:track:3cfOd4CMv2snFaKAnMdnvK' // TO DO: Dynamically Replace this link with data from the API Call above (searchForTrack)
+  };
+  const callback = (EmbedController) => {
+    document.querySelectorAll('.episode').forEach(
+      episode => {
+        episode.addEventListener('click', () => {
+          EmbedController.loadUri(episode.dataset.spotifyId)
+        });
+      })
+  };
+  IFrameAPI.createController(element, options, callback);
+};

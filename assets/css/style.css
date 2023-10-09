@@ -1,0 +1,133 @@
+*{
+ font-size: 16px;
+}
+.Mondegreen{
+    display: none;
+    padding: 12px;
+    border: 2px solid black;
+    width: fit-content;
+    margin-left: 20%;
+}
+.Songdegreen:hover ~ .Mondegreen{
+    display: block;
+    
+}
+.LOGO {
+    display:block ;
+    width: 60px;
+}
+
+.Songdegreen {
+  font-family: 'Lobster', cursive;
+}
+
+.f-view{
+    cursor: pointer;
+}
+
+main{
+  display: inline-flex;
+  padding: 20px;
+  margin-left: 20%;
+  margin-top: 5%;
+}
+
+/* .Album-cover{
+    border: 2px solid black;
+    width: 400px;
+    height: 500px;
+    background-color: lightblue;
+       
+} */
+
+.Song-name{
+    
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8em;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.Songdefied{
+    border: 2px solid black;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.4em;
+
+}
+.Lyrics{
+    width: 600px;
+    height: 500px;
+    border: 2px solid black;
+    margin-left: 80px;
+      
+}
+
+@media screen and (max-width: 600px) {
+    .LOGO {
+      width: 60px;
+      margin-left: 2.5%;
+    }
+    
+    .f-view {
+      font-size: 0.8em;
+      margin-right: 10%;
+      
+    }
+    
+    .Songdegreen {
+      font-size: 1.5em;
+    }
+    
+    .green {
+      font-size: 1.2em;
+    }
+    
+    main {
+      display: inline-block;
+      margin-left: 10%;
+      margin-top: 2.5%;
+    }
+    
+    .Album-cover {
+      width: 250px;
+      height: 250px;
+      margin-left: 15%
+    }
+    
+    .Song-name {
+      font-size: 1.6em;
+    }
+    
+    .Songdefied {
+      font-size: 1em;
+      margin-top: 10%;
+      width: 250px;
+      margin-left: 15%;
+    }
+    
+    .Lyrics {
+      width: 250px;
+      height: 250px;
+      margin-left: 15%;
+    }
+  }
+  @media screen and (max-width: 376px){
+    .Album-cover{
+        margin-left: 5%;
+    }
+    .Songdefied{
+        margin-left: 5%;
+    }
+    .Lyrics{
+        margin-left: 5%;
+    }
+  }

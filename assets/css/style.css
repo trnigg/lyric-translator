@@ -54,7 +54,35 @@ main{
   'GRAD' 0,
   'opsz' 24
 }
+.btn-start{
+  margin-top: 5%;
+  text-align: center;
+}
+.btn-start1{
+  background-color: grey;
+  color: black;
+}
 
+.input {
+  margin-top: 5%;
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  resize: none;
+  height: 40px
+}
+
+.input-artist {
+  margin-left: 15px;
+
+}
+
+.btn-defy {
+  margin-left: 15px;
+  background-color: grey;
+  color: black;
+
+}
 .Songdefied{
     border: 2px solid black;
     margin-left: 80px;

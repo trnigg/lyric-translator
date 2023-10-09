@@ -17,7 +17,8 @@
     width: 60px;
 }
 
-.Songdegreen {
+.Songdegreen,
+.Songdefied {
   font-family: 'Lobster', cursive;
 }
 
@@ -31,14 +32,6 @@ main{
   margin-left: 20%;
   margin-top: 5%;
 }
-
-/* .Album-cover{
-    border: 2px solid black;
-    width: 400px;
-    height: 500px;
-    background-color: lightblue;
-       
-} */
 
 .Song-name{
     
@@ -56,16 +49,15 @@ main{
 }
 
 .Songdefied{
-    border: 2px solid black;
     margin-left: 80px;
     margin-bottom: 20px;
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1.8em;
 
 }
 .Lyrics{
     width: 600px;
-    height: 500px;
+    height: 200px;
     border: 2px solid black;
     margin-left: 80px;
       
@@ -97,11 +89,6 @@ main{
       margin-top: 2.5%;
     }
     
-    .Album-cover {
-      width: 250px;
-      height: 250px;
-      margin-left: 15%
-    }
     
     .Song-name {
       font-size: 1.6em;

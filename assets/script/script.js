@@ -7,7 +7,7 @@
     let artistName  ; // Remove once eventListner and input field implemented
 
 
-const apiKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+const apiKey = 'Apikey'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 
@@ -113,7 +113,7 @@ function fetchNewSpotifyToken(){
 
   // DEFINE spotify fetch variables/methods
   const spotifyID = 'ee797a9084ca4ce19e3baf9218966dad';
-  const spotifySecret = ' f9f96979429c49df84a23e9c8c2dab68'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
+  const spotifySecret = ' secret Key'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
   const spotifyTokenUrl = 'https://accounts.spotify.com/api/token';
   const authOptions = {
     method: 'POST',

@@ -16,11 +16,11 @@ var input1= document.getElementById("input1");
 
 document.querySelector(".Songdefy-btn").addEventListener("click", function() {
 
-let inputSong = document.querySelector(".input-song").value;
+let inputSong = document.querySelector("#input-song").value;
 window.inputValue = inputSong; // Using window object
 localStorage.setItem('inputSong', inputSong); // Using localStorage
 
-let inputArtist = document.querySelector(".input-artist").value;
+let inputArtist = document.querySelector("#input-artist").value;
 window.inputValue = inputArtist; // Using window object
 localStorage.setItem('inputArtist', inputArtist); // Using localStorage
 

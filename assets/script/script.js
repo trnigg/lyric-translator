@@ -7,12 +7,16 @@
     let artistName  ; // Remove once eventListner and input field implemented
 
 
-const apiKey = 'Apikey'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+const apiKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 
 // POST request to ChatGPT
 async function getMondegreen(songName, artistName) {
+
+  const loader = document.getElementById('loader');
+  loader.style.display = 'block';
+
   try {
     const response = await fetch(apiUrl, {
       method: 'POST',
@@ -34,14 +38,24 @@ async function getMondegreen(songName, artistName) {
     if (!response.ok) {
       throw new Error('Network response was not ok'); // TO DO elaborate on errors
     }
+    
 
     const responseData = await response.json();
     const reply = responseData.choices[0].message.content; // cherry-pick the mondegreen-lyric part
     const usageData = responseData.usage.total_tokens; // get data related to token usage
     console.log('Usage Data: ' + usageData + 'Tokens') // display how many tokens were used in console
     renderMondegreen(reply); // call function to render the reply (lyrics)
-
-  } catch (error) {
+      
+    then( response => {
+      loader.style.display = 'none'; // Hide loader when done
+      // Handle response...
+    });
+  }
+  
+  
+  catch (error) {
+    loader.style.display = 'none';
+    displayError.textContent =  error;
     console.error('Error:', error);
     return 'An error occurred while processing your request.';
   }
@@ -52,7 +66,7 @@ function renderMondegreen(reply){
   console.log(reply);
   lyrics.innerHTML = reply;
 }
-
+var displayError = document.querySelector(".Error");
 // document.addEventListener('DOMContentLoaded', (event) => {
 // document.querySelector(".Songdefy-btn").addEventListener("click", function(){
 //   console.log('button clicked ')

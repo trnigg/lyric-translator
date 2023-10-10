@@ -3,11 +3,11 @@
 // TO-DO 
   // EventListener with input fields for Track and Artist
     // trim() Track and Artist inputs
-    let songName = 'What They Do'; // Remove once eventListner and input field implemented
-    let artistName = 'The Roots'; // Remove once eventListner and input field implemented
+    let songName  ; // Remove once eventListner and input field implemented
+    let artistName  ; // Remove once eventListner and input field implemented
 
 
-const apiKey = 'ADD_SECRET_OPENAI_KEY'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+const apiKey = 'Apikey'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 
@@ -50,10 +50,32 @@ async function getMondegreen(songName, artistName) {
 // TO DO: Flesh out function to render the reply to the DOM
 function renderMondegreen(reply){ 
   console.log(reply);
+  lyrics.innerHTML = reply;
 }
 
+// document.addEventListener('DOMContentLoaded', (event) => {
+// document.querySelector(".Songdefy-btn").addEventListener("click", function(){
+//   console.log('button clicked ')
+//  var songName = localStorage.getItem("songName");
+//  var artistName = localStorage.getItem("artistName");
+//  console.log(songName, artistName);
+
+// })});
+// script.js
+let inputSong = window.inputValue; // Using window object
+
+ inputSong = localStorage.getItem('inputSong'); // Using localStorage
+console.log(inputSong);
 
 
+
+let inputArtist = window.inputValue; // Using window object
+
+ inputArtist = localStorage.getItem('inputArtist'); // Using localStorage
+console.log(inputArtist);
+songName = inputSong;
+artistName = inputArtist;
+var lyrics = document.querySelector(".Lyrics");
 
 // Example usage:
 getMondegreen(songName, artistName);
@@ -91,7 +113,7 @@ function fetchNewSpotifyToken(){
 
   // DEFINE spotify fetch variables/methods
   const spotifyID = 'ee797a9084ca4ce19e3baf9218966dad';
-  const spotifySecret = 'ADD_SECRET_SPOTIFY_KEY'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
+  const spotifySecret = ' secret Key'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
   const spotifyTokenUrl = 'https://accounts.spotify.com/api/token';
   const authOptions = {
     method: 'POST',

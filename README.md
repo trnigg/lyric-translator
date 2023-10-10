@@ -1,3 +1,8 @@
+# lyric-translator
+Translate your favourite songs to any language!
+# Link
+https://trnigg.github.io/lyric-translator/
+
 # Songde*green*
 Derived from the work *mondegreen* meaning "a misunderstood or misinterpreted word or phrase resulting from a mishearing of the lyrics of a song."
 

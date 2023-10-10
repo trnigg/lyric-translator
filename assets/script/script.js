@@ -1,12 +1,22 @@
 
 // TO-DO: Add global variables for DOM manipulation and event listeners
+// TO-DO 
+  // EventListener with input fields for Track and Artist
+    // trim() Track and Artist inputs
+    let songName  ; // Remove once eventListner and input field implemented
+    let artistName  ; // Remove once eventListner and input field implemented
 
 
-const apiKey = 'ADD_TOKEN'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+const apiKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
+
 
 // POST request to ChatGPT
 async function getMondegreen(songName, artistName) {
+
+  const loader = document.getElementById('loader');
+  loader.style.display = 'block';
+
   try {
     const response = await fetch(apiUrl, {
       method: 'POST',
@@ -28,14 +38,24 @@ async function getMondegreen(songName, artistName) {
     if (!response.ok) {
       throw new Error('Network response was not ok'); // TO DO elaborate on errors
     }
+    
 
     const responseData = await response.json();
     const reply = responseData.choices[0].message.content; // cherry-pick the mondegreen-lyric part
     const usageData = responseData.usage.total_tokens; // get data related to token usage
     console.log('Usage Data: ' + usageData + 'Tokens') // display how many tokens were used in console
     renderMondegreen(reply); // call function to render the reply (lyrics)
-
-  } catch (error) {
+      
+    then( response => {
+      loader.style.display = 'none'; // Hide loader when done
+      // Handle response...
+    });
+  }
+  
+  
+  catch (error) {
+    loader.style.display = 'none';
+    displayError.textContent =  error;
     console.error('Error:', error);
     return 'An error occurred while processing your request.';
   }
@@ -44,30 +64,40 @@ async function getMondegreen(songName, artistName) {
 // TO DO: Flesh out function to render the reply to the DOM
 function renderMondegreen(reply){ 
   console.log(reply);
+  lyrics.innerHTML = reply;
 }
+var displayError = document.querySelector(".Error");
+// document.addEventListener('DOMContentLoaded', (event) => {
+// document.querySelector(".Songdefy-btn").addEventListener("click", function(){
+//   console.log('button clicked ')
+//  var songName = localStorage.getItem("songName");
+//  var artistName = localStorage.getItem("artistName");
+//  console.log(songName, artistName);
+
+// })});
+// script.js
+let inputSong = window.inputValue; // Using window object
+
+ inputSong = localStorage.getItem('inputSong'); // Using localStorage
+console.log(inputSong);
 
 
-// TO-DO 
-  // EventListener with input fields for Track and Artist
-    // trim() Track and Artist inputs
-let songName = 'All Star'; // Remove once eventListner and input field implemented
-let artistName = 'Smash Mouth'; // Remove once eventListner and input field implemented
+
+let inputArtist = window.inputValue; // Using window object
+
+ inputArtist = localStorage.getItem('inputArtist'); // Using localStorage
+console.log(inputArtist);
+songName = inputSong;
+artistName = inputArtist;
+var lyrics = document.querySelector(".Lyrics");
 
 // Example usage:
 getMondegreen(songName, artistName);
 
-
-// https://platform.openai.com/docs/guides/gpt
-// https://platform.openai.com/account/api-keys
-
-// IMPORTANT!!! FOR SPOTIFY: REMEMBER TO CHANGE REDIRECT URI !!! See: https://developer.spotify.com/documentation/web-api/tutorials/getting-started#create-an-app
-
-// Check expiry time of access token in localStorage against accurent time - if expired get new - don't need refresh
-// https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
-
 // DECLARE global variables
 let spotifyToken = localStorage.getItem('currentSpotifyToken');
 let spotifyTokenExpiryTime = 3600;
+
 
 
 // FUNCTION to store new code to localStorage: TODO incorporate under get new token
@@ -97,7 +127,7 @@ function fetchNewSpotifyToken(){
 
   // DEFINE spotify fetch variables/methods
   const spotifyID = 'ee797a9084ca4ce19e3baf9218966dad';
-  const spotifySecret = 'REPLACE_WITH_SECRET'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
+  const spotifySecret = ' secret Key'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
   const spotifyTokenUrl = 'https://accounts.spotify.com/api/token';
   const authOptions = {
     method: 'POST',
@@ -130,6 +160,8 @@ function fetchNewSpotifyToken(){
 }
 
 
+
+
 // FUNCTION to search for a track: (See https://developer.spotify.com/documentation/web-api/reference/search)
 function searchForTrack() {
   // CALLS Function to check token/create
@@ -154,6 +186,9 @@ function searchForTrack() {
       // Handle the response data here
       console.log(data);
       // Need to handle data to get URI and input it into the Widget
+      const trackUri = data.tracks.items[0].uri;
+      console.log(trackUri);
+      renderEmbed(trackUri);
     })
     .catch(error => {
       // Handle any errors that occurred during the fetch
@@ -163,32 +198,30 @@ function searchForTrack() {
 
 //TEST CALL:
 
-// searchForTrack(); // THis needs to be added to an event listener
 
 
-// Send Spotify URI to <iFrame>
-
-// Render the iFrame below
-
-
+searchForTrack();
 
 //See  https://developer.spotify.com/documentation/embeds/tutorials/using-the-iframe-api
-
-window.onSpotifyIframeApiReady = (IFrameAPI) => {
-  const element = document.getElementById('embed-iframe');
-  const options = {
-    width: '100%',
-    height: '200',
-    uri: 'spotify:track:3cfOd4CMv2snFaKAnMdnvK' // TO DO: Dynamically Replace this link with data from the API Call above (searchForTrack)
+function renderEmbed(trackUri) {
+  console.log(trackUri);
+  window.onSpotifyIframeApiReady = (IFrameAPI) => {
+    const element = document.getElementById('embed-iframe');
+    const options = {
+      width: '100%',
+      height: '200',
+      uri: trackUri // TO DO: Dynamically Replace this link with data from the API Call above (searchForTrack)
+    };
+    const callback = (EmbedController) => {
+      document.querySelectorAll('.episode').forEach(
+        episode => {
+          episode.addEventListener('click', () => {
+            EmbedController.loadUri(episode.dataset.spotifyId)
+          });
+        })
+    };
+    IFrameAPI.createController(element, options, callback);
   };
-  const callback = (EmbedController) => {
-    document.querySelectorAll('.episode').forEach(
-      episode => {
-        episode.addEventListener('click', () => {
-          EmbedController.loadUri(episode.dataset.spotifyId)
-        });
-      })
-  };
-  IFrameAPI.createController(element, options, callback);
-};
+}
 
+renderEmbed();

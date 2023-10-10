@@ -7,7 +7,8 @@
 *{
  font-size: 16px;
 }
-.Mondegreen{
+
+.Mondegreen {
     display: none;
     padding: 12px;
     border: 2px dashed #9893b2;
@@ -20,7 +21,7 @@
   cursor: pointer;
 }
 
-.Songdegreen:hover ~ .Mondegreen{
+.Songdegreen:hover ~ .Mondegreen {
     display: block;
 }
 
@@ -35,7 +36,7 @@
   font-family: 'Lobster', cursive;
 }
 
-.f-view{
+.f-view {
     cursor: pointer;
 }
 
@@ -43,14 +44,14 @@
   color: var(--green);
 }
 
-main{
+main {
   display: inline-flex;
   padding: 20px;
   margin-left: 20%;
   margin-top: 5%;
 }
 
-.Song-name{
+.Song-name {
     
     margin-bottom: 20px;
     text-align: center;
@@ -66,13 +67,19 @@ main{
   'opsz' 24
 }
 
-.btn-start{
+.btn-start {
   margin-top: 5%;
   text-align: center;
 }
-.btn-start1{
+
+.btn-start1 {
   background-color: var(--grey);
   color: var(--white);
+}
+
+.btn-start1:hover {
+  background-color: var(--green);
+  border-color: var(--green);
 }
 
 .input {
@@ -95,7 +102,13 @@ main{
   color: var(--white);
 
 }
-.Songdefied{
+
+.btn-defy:hover {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+.Songdefied {
     margin-left: 80px;
     margin-bottom: 20px;
     text-align: center;
@@ -106,6 +119,7 @@ main{
 .faveSongTxt {
   font-size: 1.55em;
 }
+
 .Lyrics{
     width: 600px;
     height: 200px;

@@ -14,7 +14,7 @@ var input1= document.getElementById("input1");
 
 // index.js
 
-document.querySelector(".Songdefy-btn").addEventListener("click", function() {
+document.querySelector("#songdefy-btn").addEventListener("click", function() {
 
 let inputSong = document.querySelector("#input-song").value;
 window.inputValue = inputSong; // Using window object

@@ -7,7 +7,7 @@
     let artistName  ; // Remove once eventListner and input field implemented
 
 
-const apiKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+const apiKey = 'add key'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 

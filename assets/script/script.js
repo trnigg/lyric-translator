@@ -7,7 +7,7 @@
     let artistName  ; // Remove once eventListner and input field implemented
 
 
-const apiKey = 'add key'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+const apiKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 
@@ -44,12 +44,7 @@ async function getMondegreen(songName, artistName) {
     const reply = responseData.choices[0].message.content; // cherry-pick the mondegreen-lyric part
     const usageData = responseData.usage.total_tokens; // get data related to token usage
     console.log('Usage Data: ' + usageData + 'Tokens') // display how many tokens were used in console
-    renderMondegreen(reply); // call function to render the reply (lyrics)
-      
-    then( response => {
-      loader.style.display = 'none'; // Hide loader when done
-      // Handle response...
-    });
+    renderMondegreen(reply); // call function to render the reply (lyrics)   
   }
   
   
@@ -127,7 +122,7 @@ function fetchNewSpotifyToken(){
 
   // DEFINE spotify fetch variables/methods
   const spotifyID = 'ee797a9084ca4ce19e3baf9218966dad';
-  const spotifySecret = ' secret Key'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
+  const spotifySecret = '7ceb12a43794462283cfaabd99a2bc14'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
   const spotifyTokenUrl = 'https://accounts.spotify.com/api/token';
   const authOptions = {
     method: 'POST',
@@ -187,8 +182,10 @@ function searchForTrack() {
       console.log(data);
       // Need to handle data to get URI and input it into the Widget
       const trackUri = data.tracks.items[0].uri;
+      const trackId = data.tracks.items[0].id;
       console.log(trackUri);
-      renderEmbed(trackUri);
+      console.log(trackId);
+      renderEmbed(trackId);
     })
     .catch(error => {
       // Handle any errors that occurred during the fetch
@@ -198,30 +195,10 @@ function searchForTrack() {
 
 //TEST CALL:
 
+function renderEmbed(trackId) {
+  var iframe = document.getElementById("spotify-iframe");
+  iframe.src = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator`;
+}
 
 
 searchForTrack();
-
-//See  https://developer.spotify.com/documentation/embeds/tutorials/using-the-iframe-api
-function renderEmbed(trackUri) {
-  console.log(trackUri);
-  window.onSpotifyIframeApiReady = (IFrameAPI) => {
-    const element = document.getElementById('embed-iframe');
-    const options = {
-      width: '100%',
-      height: '200',
-      uri: trackUri // TO DO: Dynamically Replace this link with data from the API Call above (searchForTrack)
-    };
-    const callback = (EmbedController) => {
-      document.querySelectorAll('.episode').forEach(
-        episode => {
-          episode.addEventListener('click', () => {
-            EmbedController.loadUri(episode.dataset.spotifyId)
-          });
-        })
-    };
-    IFrameAPI.createController(element, options, callback);
-  };
-}
-
-renderEmbed();

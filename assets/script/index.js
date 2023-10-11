@@ -1,28 +1,20 @@
 
-var button = document.getElementById("start");
+var startButton = document.getElementById("start");
 var input1= document.getElementById("input1");
+let inputArtist = document.querySelector("#input-artist").value;
+let inputSong = document.querySelector("#input-song").value;
 
-  button.addEventListener("click",(e) => {
+// when start button is clicked it displays the two inputs.
+startButton.addEventListener("click",(e) => {
    input1.style.display ="flex";
 });
 
-
-// songName = document.querySelector(".input-song").value;
-// artistName = document.querySelector(".input-artist").value;
-// localStorage.setItem('songName', songName);
-// localStorage.setItem('artistName', artistName);
-
-// index.js
-
+// Saves the input value to the local storage when the songdefy button is clicked.
 document.querySelector("#songdefy-btn").addEventListener("click", function() {
-
-let inputSong = document.querySelector("#input-song").value;
-window.inputValue = inputSong; // Using window object
-localStorage.setItem('inputSong', inputSong); // Using localStorage
-
-let inputArtist = document.querySelector("#input-artist").value;
-window.inputValue = inputArtist; // Using window object
-localStorage.setItem('inputArtist', inputArtist); // Using localStorage
+window.inputValue = inputSong;
+localStorage.setItem('inputSong', inputSong); 
+window.inputValue = inputArtist; 
+localStorage.setItem('inputArtist', inputArtist); 
 
 
 })

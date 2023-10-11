@@ -1,19 +1,30 @@
 // DECLARE Dom Variables
 // Insert DOM variables  here
-
+const displayError = document.querySelector(".Error");
+const lyrics = document.querySelector(".Lyrics");
+const timeItTakes = document.querySelector(".Time-it-takes");
+ const loader = document.getElementById('loader');
 
 // DECLARE Global variables
 let spotifyToken = localStorage.getItem('currentSpotifyToken');
 let spotifyTokenExpiryTime = 3600;
 
+// Using window object
+let inputSong = window.inputValue; 
+let inputArtist = window.inputValue; 
+ // getting from localStorage
+inputSong = localStorage.getItem('inputSong');
+console.log(inputSong);
+inputArtist = localStorage.getItem('inputArtist'); 
+console.log(inputArtist);
+songName = inputSong;
+artistName = inputArtist;
 // _______________________________________________________________
 // DEFINE FUNCTIONS
 
 // FUNCTION to 
 async function getMondegreen(songName, artistName) {
-  const timeItTakes = document.querySelector(".Time-it-takes");
   timeItTakes.style.display = 'block';
-  const loader = document.getElementById('loader');
   loader.style.display = 'block';
   // POST request to ChatGPT
   try {
@@ -60,22 +71,6 @@ function renderMondegreen(reply){
   console.log(reply);
   lyrics.innerHTML = reply;
 }
-const displayError = document.querySelector(".Error");
-
-let inputSong = window.inputValue; // Using window object
-
- inputSong = localStorage.getItem('inputSong'); // Using localStorage
-console.log(inputSong);
-
-
-
-let inputArtist = window.inputValue; // Using window object
-
- inputArtist = localStorage.getItem('inputArtist'); // Using localStorage
-console.log(inputArtist);
-songName = inputSong;
-artistName = inputArtist;
-const lyrics = document.querySelector(".Lyrics");
 
 
 // FUNCTION to store new code to localStorage: TODO incorporate under get new token

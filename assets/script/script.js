@@ -7,13 +7,14 @@
     let artistName  ; // Remove once eventListner and input field implemented
 
 
-const apiKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+ const apiKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 
 // POST request to ChatGPT
 async function getMondegreen(songName, artistName) {
-
+  const timeItTakes = document.querySelector(".Time-it-takes");
+  timeItTakes.style.display = 'block';
   const loader = document.getElementById('loader');
   loader.style.display = 'block';
 
@@ -49,6 +50,7 @@ async function getMondegreen(songName, artistName) {
   
   
   catch (error) {
+    timeItTakes.style.display = 'none';
     loader.style.display = 'none';
     displayError.textContent =  error;
     console.error('Error:', error);

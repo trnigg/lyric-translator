@@ -145,6 +145,10 @@ main {
   color: red;
   margin-top: 10%;
 }
+.Time-it-takes{
+  margin-top: -100px;
+  margin-left: 20px;
+}
 
 @keyframes spin {
   0% { transform: rotate(0deg); }

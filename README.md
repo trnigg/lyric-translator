@@ -1,8 +1,3 @@
-# lyric-translator
-Translate your favourite songs to any language!
-# Link
-https://trnigg.github.io/lyric-translator/
-
 # Songde*green*
 Derived from the work *mondegreen* meaning "a misunderstood or misinterpreted word or phrase resulting from a mishearing of the lyrics of a song."
 
@@ -14,14 +9,18 @@ For example,
 
 ## Description
 - This application essentially allows you to recreate an endless amount of different "mondegreened" lyrics out of your favourite song!
-- It is written in HTML, CSS and plain JS, leveraging OpenAI/Chat GPT and Spotify APIs, while using Tailwind for styling [insert links to the APIs].
+- It is written in HTML, CSS and plain JS, leveraging OpenAI/Chat GPT and Spotify APIs, while using Tailwind for styling.
 - The application is designed to be responsive across devices, allowing for entertainment on the go! [are we actually responsive on mobile devices?] []
 
 ## Installation
 
-To get started, all you need to do is visit the following URL: ________________!
+In future, this application is intended to be usable simply by visiting our deployed application, [Songdegreen](https://trnigg.github.io/lyric-translator/), on Github pages.
 
->NOTE: Currently, the application requires the user to generate their own API keys for OpenAI and Spotify and to implement them within the JS code (see [Roadmap / Known Bugs](#roadmap--know-bugs) below).
+However:
+>Currently, the application requires the user to generate their own API keys for OpenAI and Spotify and to implement them within the JS code (see [Roadmap / Known Bugs](#roadmap--know-bugs) below).
+
+This means that currently in order to test the application, please clone the repo, navigate to the `assets/script/script.js` file and add the OpenAI and Spotify secret keys where required. (Use `ctrl + f` and search for `INSERT_SECRET`).
+
 
 
 ## Usage
@@ -38,17 +37,19 @@ To get started, all you need to do is visit the following URL: ________________!
 [We can include more screenshots here]
 
 ## Support
-[Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.]
+For any questions or support in testing, please reach out to [_______] 
 
 ## Roadmap / Know Bugs
-- Currently, secret keys are  required to run the JS and connect with the OpenAI and Spotify APIs, requiring us to remove these from visible code upon commits.
+- Currently, secret keys are required to run the JS and connect with the OpenAI and Spotify APIs, requiring us to remove these from visible code upon commits.
     - In the future, with more knowledge of back-end programming, these secret keys will be permanently implemented there.
 - Due to the time it takes OpenAI to generate and render a response, a modal or an animation that lets the user know the response is loading would benefit the user experience.
 - Future development could see us implement [Chatgpt.js](https://github.com/kudoai/chatgpt.js), a client-side JS library allows a web-application to directly communicate with OpenAI via manipulation of the DOM.
     - This would massively benefit the behind-the-scenes processes of the app, as it would no longer require an API call, cutting out the need for (financial) tokens required for each call.
     - It would also allow us to feed more informative prompts to Chat GPT, to facilitate better and more consistent responses.
-
-[If you have ideas for releases in the future, it is a good idea to list them in the README.]
+- The project would benefit from additional implementation of `Async` `functions` as opposed to the current JS.
+    - The script is relying currently on a `time-out` to ensure that everything is loaded before the embed is called.
+        - This gives the impression that the app is slower than in reality;
+        - This also may not capture fringe-cases where communication is slower than expected with the Spotify API.
 
 ## Authors and acknowledgment
 [Show your appreciation to those who have contributed to the project.]
@@ -59,4 +60,6 @@ MIT License.
 Please refer to the license section in the repo for further information.
 
 ## Project status
-[If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.]
+
+As of 11/10/2023, development on this project has been suspended indefinitely. 
+Development may resume when we have learned the tools to address the points earmarked in our [Roadmap / Known Bugs](#roadmap--know-bugs) above.

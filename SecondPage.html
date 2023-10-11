@@ -39,6 +39,7 @@
 
 
 <body class="font-helvetica text-grey">
+  
     <header>
        <nav>
         <p onclick="goBack()" class="f-view text-lg float-right pt-20 pr-20 font-bold">Go Back</p>
@@ -47,9 +48,12 @@
         <p class="Mondegreen"><span class="text-green font-bold">Mondegreen</span> (noun) : a misunderstood or misinterpreted word or phrase resulting from a mishearing of the lyrics of a song.</p>
        </nav>    
     </header>
+
        <main>
 
         <div class="" >
+
+         <h2 class="Song-name"><span class="faveSongTxt">Original</span> song:</h2>
 
          <!--  See :https://developer.spotify.com/documentation/embeds/tutorials/using-the-iframe-api -->
          <div class="Album-cover" id="embed-iframe">
@@ -61,7 +65,7 @@
 
        <div>
 
-        <h2 class="Songdefied"><span class="songdefyTxt text-4xl">Songdefied</span> lyrics:</h2>
+        <h2 class="Songdefied"><span class="songdefyTxt text-4xl text-green">Songdefied</span> lyrics:</h2>
         <div class="Lyrics" style="overflow: auto;">
           <div id="loader" class="loader"></div>
           <div class="Error"></div>

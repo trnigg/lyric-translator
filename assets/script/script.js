@@ -1,29 +1,29 @@
-
-// TO-DO: Add global variables for DOM manipulation and event listeners
-// TO-DO 
-  // EventListener with input fields for Track and Artist
-    // trim() Track and Artist inputs
-    let songName  ; // Remove once eventListner and input field implemented
-    let artistName  ; // Remove once eventListner and input field implemented
+// DECLARE Dom Variables
+// Insert DOM variables  here
 
 
- const apiKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
-const apiUrl = 'https://api.openai.com/v1/chat/completions';
+// DECLARE Global variables
+let spotifyToken = localStorage.getItem('currentSpotifyToken');
+let spotifyTokenExpiryTime = 3600;
 
+// _______________________________________________________________
+// DEFINE FUNCTIONS
 
-// POST request to ChatGPT
+// FUNCTION to 
 async function getMondegreen(songName, artistName) {
   const timeItTakes = document.querySelector(".Time-it-takes");
   timeItTakes.style.display = 'block';
   const loader = document.getElementById('loader');
   loader.style.display = 'block';
-
+  // POST request to ChatGPT
   try {
-    const response = await fetch(apiUrl, {
+    const openAISecretKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+    const openAIUrl = 'https://api.openai.com/v1/chat/completions';
+    const response = await fetch(openAIUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
+        'Authorization': `Bearer ${openAISecretKey}`,
       },
       body: JSON.stringify({
         model: 'gpt-3.5-turbo',
@@ -34,12 +34,10 @@ async function getMondegreen(songName, artistName) {
         max_tokens: 200, //set low for testing phase
       }),
     });
-
-    // Handle response
+    // HANDLE response
     if (!response.ok) {
       throw new Error('Network response was not ok'); // TO DO elaborate on errors
     }
-    
 
     const responseData = await response.json();
     const reply = responseData.choices[0].message.content; // cherry-pick the mondegreen-lyric part
@@ -47,7 +45,6 @@ async function getMondegreen(songName, artistName) {
     console.log('Usage Data: ' + usageData + 'Tokens') // display how many tokens were used in console
     renderMondegreen(reply); // call function to render the reply (lyrics)   
   }
-  
   
   catch (error) {
     timeItTakes.style.display = 'none';
@@ -58,21 +55,13 @@ async function getMondegreen(songName, artistName) {
   }
 }
 
-// TO DO: Flesh out function to render the reply to the DOM
+// FUNCTION to render the reply to the DOM
 function renderMondegreen(reply){ 
   console.log(reply);
   lyrics.innerHTML = reply;
 }
-var displayError = document.querySelector(".Error");
-// document.addEventListener('DOMContentLoaded', (event) => {
-// document.querySelector(".Songdefy-btn").addEventListener("click", function(){
-//   console.log('button clicked ')
-//  var songName = localStorage.getItem("songName");
-//  var artistName = localStorage.getItem("artistName");
-//  console.log(songName, artistName);
+const displayError = document.querySelector(".Error");
 
-// })});
-// script.js
 let inputSong = window.inputValue; // Using window object
 
  inputSong = localStorage.getItem('inputSong'); // Using localStorage
@@ -86,15 +75,7 @@ let inputArtist = window.inputValue; // Using window object
 console.log(inputArtist);
 songName = inputSong;
 artistName = inputArtist;
-var lyrics = document.querySelector(".Lyrics");
-
-// Example usage:
-getMondegreen(songName, artistName);
-
-// DECLARE global variables
-let spotifyToken = localStorage.getItem('currentSpotifyToken');
-let spotifyTokenExpiryTime = 3600;
-
+const lyrics = document.querySelector(".Lyrics");
 
 
 // FUNCTION to store new code to localStorage: TODO incorporate under get new token
@@ -118,7 +99,6 @@ function checkSpotifyTokenValidity() {
   }
 }
 
-
 // FUNCTION to fetch new spotify token:
 function fetchNewSpotifyToken(){
 
@@ -135,7 +115,7 @@ function fetchNewSpotifyToken(){
     body: 'grant_type=client_credentials'
   };
 
-
+  // FETCH token from spotify API
   fetch(spotifyTokenUrl, authOptions)
   .then(function (response) {
     if (!response.ok) {
@@ -156,13 +136,10 @@ function fetchNewSpotifyToken(){
   });
 }
 
-
-
-
 // FUNCTION to search for a track: (See https://developer.spotify.com/documentation/web-api/reference/search)
 function searchForTrack() {
   // CALLS Function to check token/create
-  checkSpotifyTokenValidity();
+  spotifyToken = localStorage.getItem('currentSpotifyToken');
   let spotifyDataUrl = `https://api.spotify.com/v1/search?q=track:${encodeURIComponent(songName)}%20artist:${encodeURIComponent(artistName)}&type=track&limit=1`; //will need a dynamic search for track and artist and limit it to one result, get the URI of that and then run it through the embed.
   // for explanation of encodeURIComponent see: // https://www.urlencoder.io/javascript/#:~:text=You%20can%20encode%20URI%20components,scheme%20to%20encode%20URI%20components.
   const authOptions = {
@@ -195,17 +172,20 @@ function searchForTrack() {
     });
 }
 
-//TEST CALL:
-
 function renderEmbed(trackId) {
   var iframe = document.getElementById("spotify-iframe");
   iframe.src = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator`;
 }
 
-
-searchForTrack();
-
-function goBack(){
-window.location.href=('index.html');
+function goBack() {
+  window.location.href=('index.html');
   console.log("goback clicked")
 }
+
+// _______________________________________________________________
+// CALL functions when page loads
+
+getMondegreen(songName, artistName);
+checkSpotifyTokenValidity();
+setTimeout(searchForTrack, 500); // This is a temporary work around to ensure that the new token is recieved from spotify before this function is called. Async function would be better.
+

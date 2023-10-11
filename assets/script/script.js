@@ -202,3 +202,8 @@ function renderEmbed(trackId) {
 
 
 searchForTrack();
+
+function goBack(){
+window.location.href=('index.html');
+  console.log("goback clicked")
+}

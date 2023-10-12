@@ -28,7 +28,7 @@ async function getMondegreen(songName, artistName) {
   loader.style.display = 'block';
   // POST request to ChatGPT
   try {
-    const openAISecretKey = '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'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
+    const openAISecretKey = 'INSERT_SECRET_OPENAI'; // Replace with  actual API key - this should be kept secret - HOW? For now i remove from commiting to online repo // https://platform.openai.com/docs/api-reference/authentication
     const openAIUrl = 'https://api.openai.com/v1/chat/completions';
     const response = await fetch(openAIUrl, {
       method: 'POST',
@@ -99,7 +99,7 @@ function fetchNewSpotifyToken(){
 
   // DEFINE spotify fetch variables/methods
   const spotifyID = 'ee797a9084ca4ce19e3baf9218966dad';
-  const spotifySecret = '7ceb12a43794462283cfaabd99a2bc14'; // IMPORTANT! This needs to be kept secret. Remove from Github commits
+  const spotifySecret = 'INSERT_SECRET_SPOTIFY'; // IMPORTANT! This needs to be kept secret. Add for testing and remove from Github commits
   const spotifyTokenUrl = 'https://accounts.spotify.com/api/token';
   const authOptions = {
     method: 'POST',
@@ -182,5 +182,5 @@ function goBack() {
 
 getMondegreen(songName, artistName);
 checkSpotifyTokenValidity();
-setTimeout(searchForTrack, 500); // This is a temporary work around to ensure that the new token is recieved from spotify before this function is called. Async function would be better.
+setTimeout(searchForTrack, 750); // This is a temporary work around to ensure that the new token is recieved from spotify before this function is called. Async function would be better.
 

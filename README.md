@@ -9,8 +9,8 @@ For example,
 
 ## Description
 - This application essentially allows you to recreate an endless amount of different "mondegreened" lyrics out of your favourite song!
-- It is written in HTML, CSS and plain JS, leveraging OpenAI/Chat GPT and Spotify APIs, while using Tailwind for styling.
-- The application is designed to be responsive across devices, allowing for entertainment on the go! [are we actually responsive on mobile devices?] []
+- It is written in HTML, CSS and plain JS, leveraging **OpenAI/Chat GPT** and **Spotify** APIs, while using **Tailwind CSS** for styling.
+- The application is designed to be responsive across devices, allowing for entertainment on the go! 
 
 ## Installation
 
@@ -22,19 +22,15 @@ However:
 This means that currently in order to test the application, please clone the repo, navigate to the `assets/script/script.js` file and add the OpenAI and Spotify secret keys where required. (Use `ctrl + f` and search for `INSERT_SECRET`).
 
 
-
 ## Usage
 1. In order to use **Songde*green***, click the 'Start Songdefying' button on the homepage and two input fields will appear:
 ![demo start](https://github.com/trnigg/lyric-translator/assets/138842903/1b4f3b1e-55bf-450d-a810-baf6e4f735b3)
 2. From there, enter the name of the **song** and **artist** it's by for the lyrics you would like "songdefied" and hit 'Songdefy It!'.
 ![demo clicked start](https://github.com/trnigg/lyric-translator/assets/138842903/c2d47dc3-5709-4b7d-9c22-ea046883cf02)
 3. You will be taken to a page where your mondegreen-lyrics will be shown, alongside a Spotify embed allowing you to listen to a short preview of the track, to jog your memory of the real song!
-    - Please note: Depending on OpenAI processing time, it could take up to 25 seconds to show your results (see [Roadmap / Known Bugs](#roadmap--know-bugs) below).
+    - Please note: Depending on OpenAI processing time, it could take up to 30 seconds to show your results.
 ![demo example](https://github.com/trnigg/lyric-translator/assets/138842903/d99c54a3-7d6c-4792-b1d0-5d029acd5094)
 
-
-## Support
-For any questions or support in testing, please reach out to [_______] 
 
 ## Roadmap / Know Bugs
 - Currently, secret keys are required to run the JS and connect with the OpenAI and Spotify APIs, requiring us to remove these from visible code upon commits.
@@ -47,8 +43,6 @@ For any questions or support in testing, please reach out to [_______]
         - This gives the impression that the app is slower than in reality;
         - This also may not capture fringe-cases where communication is slower than expected with the Spotify API.
 
-## Authors and acknowledgment
-[Show your appreciation to those who have contributed to the project.]
 
 ## License
 MIT License.

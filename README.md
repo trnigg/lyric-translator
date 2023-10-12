@@ -25,16 +25,13 @@ This means that currently in order to test the application, please clone the rep
 
 ## Usage
 1. In order to use **Songde*green***, click the 'Start Songdefying' button on the homepage and two input fields will appear:
-[insert screenshot of homepage]
+![demo start](https://github.com/trnigg/lyric-translator/assets/138842903/1b4f3b1e-55bf-450d-a810-baf6e4f735b3)
 2. From there, enter the name of the **song** and **artist** it's by for the lyrics you would like "songdefied" and hit 'Songdefy It!'.
-[insert screenshot]
+![demo clicked start](https://github.com/trnigg/lyric-translator/assets/138842903/c2d47dc3-5709-4b7d-9c22-ea046883cf02)
 3. You will be taken to a page where your mondegreen-lyrics will be shown, alongside a Spotify embed allowing you to listen to a short preview of the track, to jog your memory of the real song!
     - Please note: Depending on OpenAI processing time, it could take up to 25 seconds to show your results (see [Roadmap / Known Bugs](#roadmap--know-bugs) below).
-[another screenshot of results]
+![demo example](https://github.com/trnigg/lyric-translator/assets/138842903/d99c54a3-7d6c-4792-b1d0-5d029acd5094)
 
-
-## Visuals
-[We can include more screenshots here]
 
 ## Support
 For any questions or support in testing, please reach out to [_______] 
@@ -42,7 +39,6 @@ For any questions or support in testing, please reach out to [_______]
 ## Roadmap / Know Bugs
 - Currently, secret keys are required to run the JS and connect with the OpenAI and Spotify APIs, requiring us to remove these from visible code upon commits.
     - In the future, with more knowledge of back-end programming, these secret keys will be permanently implemented there.
-- Due to the time it takes OpenAI to generate and render a response, a modal or an animation that lets the user know the response is loading would benefit the user experience.
 - Future development could see us implement [Chatgpt.js](https://github.com/kudoai/chatgpt.js), a client-side JS library allows a web-application to directly communicate with OpenAI via manipulation of the DOM.
     - This would massively benefit the behind-the-scenes processes of the app, as it would no longer require an API call, cutting out the need for (financial) tokens required for each call.
     - It would also allow us to feed more informative prompts to Chat GPT, to facilitate better and more consistent responses.

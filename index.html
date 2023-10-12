@@ -46,11 +46,20 @@
     <section class="btn-start">
       <button class="btn-start1 h-10 border-2 py-1 px-4 border-grey rounded-lg" id="start">Start Songdefying</button>
     </section>
+    <div id="songModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <p>Error! You can not leave the fields blank!! Please fill in both boxes!</p>
+      </div>
+    
+    </div>
     <section class="input" id="input1">
       <input type="text" id="input-song" placeholder="Song Name . ." class="input-song rounded-md"></input>
       <input type="text" id="input-artist" placeholder="Artist Name . ." class="input-artist rounded-md"></input>
         <div class="btn-secondPage">
-      <button onclick="window.location.href = 'SecondPage.html';" id="songdefy-btn" class="btn-defy border-2 border-grey rounded-lg py-1 px-4">Songdefy It!</button>
+          <button id="songdefy-btn" class="btn-defy border-2 border-grey rounded-lg py-1 px-4">Songdefy It!</button>
         </div>
     </section>
 	
